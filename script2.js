@@ -76,13 +76,6 @@ const loadData = () => {
 				} else return;
 			});
 		})
-		.then(() => {
-			const sections = document.querySelectorAll("hidden");
-
-			sections.forEach((section) => {
-				observer.observe(section);
-			});
-		})
 		.catch(console.log);
 };
 

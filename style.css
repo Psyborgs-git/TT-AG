@@ -17,11 +17,11 @@ body {
   overflow-y: scroll;
   padding: 0;
   margin: 0;
-  background-color: #111;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  background-color: #111;
 }
 
 h1,
@@ -102,44 +102,6 @@ figure {
   margin: 0 auto;
   visibility: hidden;
   opacity: 0;
-}
-
-.menu-btn {
-  position: fixed;
-  top: 2vw;
-  right: 2vw;
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  z-index: 999;
-}
-
-.menu-btn__circles {
-  position: relative;
-  height: 0.45vw;
-  width: 0.45vw;
-  margin-right: 0.75vw;
-}
-
-.menu-btn__circle {
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #fff;
-  border-radius: 50%;
-}
-
-.menu-btn__circle--top {
-  visiblity: hidden;
-  opacity: 0;
-}
-
-.menu-btn__text {
-  color: #fff;
-  font-size: 1vw;
 }
 
 .filter {
@@ -520,21 +482,44 @@ section .section-data pre {
   white-space: pre-line;
 }
 
-
-section .hidden {
+.hidden {
   opacity: 0;
+  transition: opacity 500ms ease-in-out;
+}
+
+.hidden h1 {
   filter: blur(10px);
-  transform: translateX(-100%);
+  transform: translateX(-33%);
   transition: all 500ms ease-in-out;
 }
 
-section .show {
-  opacity: 1;
-  filter: blur(0px);
-  transform: translateX(0%);
+.hidden .section-data {
+  filter: blur(10px);
+  transform: translateX(-33%);
   transition: all 500ms ease-in-out;
-  animation-delay: 200ms;
-  -webkit-animation-delay: 200ms;
+}
+
+.show {
+  opacity: 1;
+  transition: opacity 500ms ease-in-out;
+  animation-delay: 100ms;
+  -webkit-animation-delay: 100ms;
+}
+
+.show h1 {
+  animation-delay: 250ms;
+  -webkit-animation-delay: 250ms;
+  filter: blur(0px);
+  transform: translateX(-0%);
+  transition: all 500ms ease-in-out;
+}
+
+.show .section-data {
+  animation-delay: 360ms;
+  -webkit-animation-delay: 360ms;
+  filter: blur(0px);
+  transform: translateX(-0%);
+  transition: all 500ms ease-in-out;
 }
 
 .v-ctr {
@@ -556,6 +541,7 @@ section .show {
   background-color: #333;
   text-decoration: none;
   transition: box-shadow 0.3s;
+  margin-bottom: 100px;
 }
 
 .neon-button:hover {
