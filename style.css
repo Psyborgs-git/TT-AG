@@ -488,22 +488,38 @@ section {
 }
 
 section h1 {
-  font-size: 24px;
-  padding: 5em;
   animation-delay: 210ms;
   -webkit-animation-delay: 210ms;
-  color: #000;
+  font-family: "Playfair Display", serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: #333333;
 }
 
 section .section-data {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
   padding: 5em;
   animation-delay: 210ms;
   -webkit-animation-delay: 210ms;
-  font-size: medium;
   font-weight: 500;
   color: #333;
   text-align: center;
+  max-width: 80vw;
 }
+
+section .section-data pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+
+.break-lines::after {
+  content: attr(data-content);
+  white-space: pre-line;
+}
+
 
 section .hidden {
   opacity: 0;
@@ -528,6 +544,44 @@ section .show {
   left: 0;
   right: 0;
   z-index: 9999;
+}
+
+.neon-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #333;
+  text-decoration: none;
+  transition: box-shadow 0.3s;
+}
+
+.neon-button:hover {
+  animation: neon-effect 1s infinite;
+  box-shadow: 0 0 20px 5px #33ccff;
+  background-color: #33ccff;
+}
+
+.slide__title :hover {
+  animation: neon-effect 1s infinite;
+  box-shadow: 0 0 20px 5px #33ccff;
+  color: #33ccff;
+}
+
+@keyframes neon-effect {
+  0% {
+    box-shadow: 0 0 5px 2px #33ccff;
+  }
+
+  50% {
+    box-shadow: 0 0 20px 5px #33ccff;
+  }
+
+  100% {
+    box-shadow: 0 0 5px 2px #33ccff;
+  }
 }
 
 #section1 {

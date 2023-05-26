@@ -53,17 +53,19 @@ const loadData = () => {
 					section.id = "section" + (index + 1);
 					const title = document.createElement("h1");
 					title.innerHTML = slide.title;
-					const content = document.createElement("div");
-					content.classList.add("section-data");
-					content.innerHTML = slide.content;
+					const content = document.createElement("p");
+					content.classList.add("section-data", "break-lines");
+					content.innerHTML = `
+						<pre>${slide.content}</pre>	
+					`;
 					section.appendChild(title);
 					section.appendChild(content);
 					sectionsList.appendChild(section);
 					observer.observe(section);
 					if (index + 1 === slides.length) {
 						// <span class="travel hover-target">memes 🤫</span>
-						const span = document.createElement("span");
-						span.classList.add("hover-target");
+						const span = document.createElement("a");
+						span.classList.add("hover-target", "neon-button");
 						span.innerHTML = "Explore Products";
 						span.onclick = () => {
 							document.querySelector(".v-ctr").classList.add("hide");
