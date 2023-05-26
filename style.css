@@ -468,7 +468,7 @@ section .section-data {
   font-weight: 500;
   color: #333;
   text-align: center;
-  max-width: 80vw;
+  max-width: 100%;
 }
 
 section .section-data pre {
