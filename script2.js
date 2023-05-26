@@ -39,7 +39,7 @@ const observer = new IntersectionObserver((entries) => {
 	});
 });
 
-const sectionsList = document.getElementById("scroll-v-c");
+const sectionsList = document.getElementById("sections-view");
 
 const loadData = () => {
 	fetch("./data.json")
@@ -47,9 +47,7 @@ const loadData = () => {
 		.then((data) => data.slides)
 		.then((slides) => {
 			slides.map((slide, index) => {
-				console.log(slide);
 				if (!Array.isArray(slide.content)) {
-					console.log(slide.title);
 					const section = document.createElement("section");
 					section.classList.add("hidden");
 					section.id = "section" + (index + 1);
@@ -68,8 +66,8 @@ const loadData = () => {
 						span.classList.add("hover-target");
 						span.innerHTML = "Explore Products";
 						span.onclick = () => {
-							document.querySelector("#sections-view").classList.add("hide");
-							document.querySelector("#products-view").classList.remove("hide");
+							document.querySelector(".v-ctr").classList.add("hide");
+							window.scrollTo(0, 0);
 						};
 						section.appendChild(span);
 					}
@@ -87,3 +85,7 @@ const loadData = () => {
 };
 
 loadData();
+
+document.getElementById("toggle-base-data").addEventListener("click", () => {
+	document.querySelector(".v-ctr").classList.remove("hide");
+});

@@ -390,7 +390,6 @@ class Transition {
 		this.dom.triggers.forEach((trigger) => {
 			trigger.addEventListener("click", (e) => {
 				e.preventDefault();
-				console.log("click fird", e);
 
 				if (this.state) return;
 
